@@ -5,6 +5,7 @@ const allPara = document.querySelectorAll('p');
 const nav = document.querySelector('nav');
 const navContainer = document.querySelector('.nav-container');
 const header = document.querySelector('header');
+const logoHeading = document.querySelector('.logo-heading');
 
 funBus.addEventListener('mouseover', () => {
     body.classList.add('blue');
@@ -46,4 +47,8 @@ window.addEventListener('focus', (event) => {
 
 window.addEventListener('blur', () => {
     navContainer.classList.remove('pink');
+})
+
+window.addEventListener('resize', (event) => {
+    logoHeading.innerText = `Height: ${window.innerHeight}, Width: ${window.innerWidth}`;
 })
