@@ -8,6 +8,7 @@ const header = document.querySelector('header');
 const logoHeading = document.querySelector('.logo-heading');
 const destination = document.querySelector('.content-destination');
 const destinationH2 = destination.querySelector('h2');
+const buttons = document.querySelectorAll('.btn');
 
 funBus.addEventListener('mouseover', () => {
     body.classList.add('blue');
@@ -56,12 +57,20 @@ window.addEventListener('resize', (event) => {
 })
 
 window.addEventListener('scroll', (event) => {
-    console.log(event);
+    // console.log(event);
     // event.preventDefault;
     destinationH2.innerText = `X: ${window.scrollX} Y: ${window.scrollY}`;
     if(window.scrollY > 700) {
         body.classList.add('blue');
-    } else if (window.scrollY >= 700) {
+    } else if (window.scrollY <= 700) {
         body.classList.remove('blue');
     }
+})
+
+buttons.forEach(button => {
+    button.addEventListener('dblclick', (event) => {
+        // console.log(event);
+        event.currentTarget.parentElement.classList.toggle('pink');
+        // .classList.add('blue');
+    })
 })
