@@ -6,6 +6,8 @@ const nav = document.querySelector('nav');
 const navContainer = document.querySelector('.nav-container');
 const header = document.querySelector('header');
 const logoHeading = document.querySelector('.logo-heading');
+const destination = document.querySelector('.content-destination');
+const destinationH2 = destination.querySelector('h2');
 
 funBus.addEventListener('mouseover', () => {
     body.classList.add('blue');
@@ -41,7 +43,7 @@ map.addEventListener('wheel', (event) => {
 })   
 
 window.addEventListener('focus', (event) => {
-    console.log(event);
+    // console.log(event);
     navContainer.classList.add('pink');
 })
 
@@ -51,4 +53,15 @@ window.addEventListener('blur', () => {
 
 window.addEventListener('resize', (event) => {
     logoHeading.innerText = `Height: ${window.innerHeight}, Width: ${window.innerWidth}`;
+})
+
+window.addEventListener('scroll', (event) => {
+    console.log(event);
+    // event.preventDefault;
+    destinationH2.innerText = `X: ${window.scrollX} Y: ${window.scrollY}`;
+    if(window.scrollY > 700) {
+        body.classList.add('blue');
+    } else if (window.scrollY >= 700) {
+        body.classList.remove('blue');
+    }
 })
