@@ -4,18 +4,30 @@ const body = document.querySelector('body');
 const allPara = document.querySelectorAll('p');
 const nav = document.querySelector('nav');
 const navContainer = document.querySelector('.nav-container');
+const navItems = document.querySelectorAll('.nav-link');
 const header = document.querySelector('header');
 const logoHeading = document.querySelector('.logo-heading');
 const destination = document.querySelector('.content-destination');
 const destinationH2 = destination.querySelector('h2');
 const buttons = document.querySelectorAll('.btn');
+const intro = document.querySelector('.intro');
 
-funBus.addEventListener('mouseover', () => {
+funBus.addEventListener('mouseover', (event) => {
     body.classList.add('blue');
+    event.stopPropagation();
 })
 
-funBus.addEventListener('mouseout', () => {
+funBus.addEventListener('mouseout', (event) => {
     body.classList.remove('blue');
+    event.stopPropagation();
+})
+
+intro.addEventListener('mouseover', () => {
+    body.classList.add('pink');
+})
+
+intro.addEventListener('mouseout', () => {
+    body.classList.remove('pink');
 })
 
 document.addEventListener('keydown', (event) => {
@@ -72,5 +84,15 @@ buttons.forEach(button => {
         // console.log(event);
         event.currentTarget.parentElement.classList.toggle('pink');
         // .classList.add('blue');
+    })
+})
+
+
+
+navItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+        // console.log(event.currentTarget);
+        event.currentTarget.innerText = "Hey!";
+        event.preventDefault();
     })
 })
